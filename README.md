@@ -2,7 +2,7 @@
 
 A blog about various web features and apis.
 
-# Article Structure
+## Article Structure
 
 All articles should follow the below format. The list items below should be
 level one headers in your article.
@@ -51,15 +51,15 @@ level one headers in your article.
 
     Encourage experimentation and suggest related APIs to explore next.
 
-# Development
+## Development
 
-## Committing
+### Committing
 
 This project uses the
 [conventional commits message format](https://www.conventionalcommits.org/en/v1.0.0/#summary).
 Simply run `git commit` to get started.
 
-## Git Hooks
+### Git Hooks
 
 This project uses [husky](https://typicode.github.io/husky) to manage git hooks.
 If you prefer to commit without these hooks prefix your command with `HUSKY=0`
