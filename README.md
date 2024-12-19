@@ -59,6 +59,15 @@ This project uses the
 [conventional commits message format](https://www.conventionalcommits.org/en/v1.0.0/#summary).
 Simply run `git commit` to get started.
 
+### Component Placement
+
+Do not put components in the `routes/` directory. Instead put components in
+`src/` or `src/<featureName>`. Components in the `routes/` directory are not
+checked for test coverage.
+
+Additionally, do not put components directly in `src/Root.tsx` as that file is
+excluded from coverage and not tested.
+
 ### Git Hooks
 
 This project uses [husky](https://typicode.github.io/husky) to manage git hooks.
