@@ -53,6 +53,9 @@ level one headers in your article.
 
 ## Development
 
+Simply use `npm start` to run any script(s). Don't worry about remembering which
+scripts are available!
+
 ### Committing
 
 This project uses the
