@@ -9,12 +9,12 @@ import { Navbar } from "./Navbar.tsx";
 const router = createRouter({ routeTree });
 
 describe("Navbar", () => {
-  test("links to home and about", () => {
+  test("links to home, about, posts", () => {
     render(<RouterProvider router={router} defaultComponent={Navbar} />);
     const links = screen.getAllByRole("link");
     const linkTexts = links.map((link) => link.textContent);
-    expect(linkTexts).toHaveLength(2);
-    ["Home", "About"].forEach((expectedLinkText) => {
+    expect(linkTexts).toHaveLength(3);
+    ["Home", "About", "Posts"].forEach((expectedLinkText) => {
       expect(linkTexts).toContain(expectedLinkText);
     });
   });

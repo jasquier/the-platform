@@ -9,6 +9,9 @@ export function Navbar() {
       <Link to="/about" className="[&.active]:font-bold">
         About
       </Link>
+      <Link to="/posts" className="[&.active]:font-bold">
+        Posts
+      </Link>
     </div>
   );
 }
