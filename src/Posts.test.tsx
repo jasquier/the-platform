@@ -10,4 +10,10 @@ describe("Posts", () => {
     const helloMessage = screen.getByText(/hello/i);
     expect(helloMessage).toBeInTheDocument();
   });
+
+  test("displays a button", () => {
+    render(<Posts />);
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
+  });
 });
