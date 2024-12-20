@@ -7,11 +7,13 @@
     "dev": "vite --open",
     "build": "tsc --build && vite build",
     "lint": "eslint --cache --fix .",
+    "lint:check": "eslint --cache .",
     "preview": "vite preview",
     "prepare": "husky",
     "start": "ntl --autocomplete --exclude start",
     "start:multiple": "ntl --exclude start* --multiple",
     "style": "prettier --prose-wrap always --write .",
+    "style:check": "prettier --prose-wrap always --check .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
@@ -64,8 +66,8 @@
     "vitest": "^2.1.8"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --prose-wrap always --write"
+    "*.{ts,js,tsx,jsx}": "eslint --cache",
+    "*.{ts,js,tsx,jsx,css,md}": "prettier --prose-wrap always --check"
   },
   "config": {
     "commitizen": {
