@@ -67,7 +67,7 @@
   },
   "lint-staged": {
     "*.{ts,js,tsx,jsx}": "eslint --cache",
-    "*.{ts,js,tsx,jsx,css,md}": "prettier --prose-wrap always --check"
+    "*.{ts,js,tsx,jsx,css,md,json}": "prettier --prose-wrap always --check"
   },
   "config": {
     "commitizen": {
