@@ -1,10 +1,10 @@
 import { describe, expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen";
 import "@testing-library/jest-dom/vitest";
 
-import { Navbar } from "./Navbar.tsx";
+import { routeTree } from "@/routeTree.gen";
+import { Navbar } from "@/Navbar.tsx";
 
 const router = createRouter({ routeTree });
 

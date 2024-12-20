@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 
-import { Posts } from "./Posts.tsx";
+import { Posts } from "@/Posts.tsx";
 
 describe("Posts", () => {
   test("displays a hello message", () => {

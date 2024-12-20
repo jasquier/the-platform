@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Outlet } from "@tanstack/react-router";
 
-import "./index.css";
-import { Navbar } from "./Navbar";
+import "@/index.css";
+import { Navbar } from "@/Navbar";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
