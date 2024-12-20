@@ -13,6 +13,7 @@ export default defineConfig({
         "src/Root.tsx",
         "src/main.tsx",
         "src/**/*.test.{ts,tsx}",
+        "src/lib/*",
       ],
     },
     environment: "jsdom",
