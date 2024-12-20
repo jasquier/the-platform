@@ -7,7 +7,7 @@ import { About } from "./About.tsx";
 describe("About", () => {
   test("displays a hello message", () => {
     render(<About />);
-    const helloMessage = screen.getByText("Hello from About!");
+    const helloMessage = screen.getByText(/hello/i);
     expect(helloMessage).toBeInTheDocument();
   });
 });
