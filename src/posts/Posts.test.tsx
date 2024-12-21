@@ -2,10 +2,11 @@ import { describe, expect, test } from "vitest";
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 
-import { renderWithRouter } from "@/utils/testUtils";
 import { Route } from "@/routes/posts";
+import { PathLike } from "@/types";
+import { renderWithRouter } from "@/utils/testUtils";
 
-const { path } = Route.options as { path: `/${string}` };
+const { path } = Route.options as { path: PathLike };
 
 describe("Posts", () => {
   test("displays a hello message", async () => {

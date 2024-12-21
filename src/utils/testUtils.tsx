@@ -2,9 +2,10 @@ import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+import { PathLike } from "@/types";
 import { routeTree } from "@/routeTree.gen";
 
-export async function renderWithRouter(path?: `/${string}`) {
+export async function renderWithRouter(path?: PathLike) {
   const router = createRouter({ routeTree });
   const result = render(<RouterProvider router={router} />);
 
