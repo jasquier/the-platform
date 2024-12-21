@@ -15,6 +15,7 @@
     "style": "prettier --prose-wrap always --write .",
     "style:check": "prettier --prose-wrap always --check .",
     "test": "vitest",
+    "test:breakpoint": "vitest run --inspect-brk --no-file-parallelism",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
   },

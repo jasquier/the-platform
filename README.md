@@ -71,6 +71,12 @@ checked for test coverage.
 Additionally, do not put components directly in `src/Root.tsx` as that file is
 excluded from coverage and not tested.
 
+### Debugging Tests
+
+Run the command `npm start` and select `test:breakpoint`. Then open the inspect
+page in your browser, e.g. `chrome://inspect` in chrome. Feel free to add
+`debugger;` statements in your tests while developing.
+
 ### Git Hooks
 
 This project uses [husky](https://typicode.github.io/husky) to manage git hooks.
