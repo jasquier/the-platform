@@ -19,7 +19,7 @@ function truncate(text: string, maxLen: number) {
 
 export function PostCard({ title, introduction }: PostCardProps) {
   return (
-    <Card className="w-[350px] text-2xl">
+    <Card className="max-w-[350px] text-2xl">
       <CardHeader>
         <CardTitle>{title.substring(0, 26)}</CardTitle>
         <CardDescription>{truncate(introduction, 100)}</CardDescription>
