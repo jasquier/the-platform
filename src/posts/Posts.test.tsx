@@ -1,19 +1,24 @@
 import { describe, expect, test } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 
-import { Posts } from "@/posts/Posts.tsx";
+import { renderWithRouter } from "@/utils/testUtils";
+import { Route } from "@/routes/posts";
+
+const { path } = Route.options as { path: `/${string}` };
 
 describe("Posts", () => {
-  test("displays a hello message", () => {
-    render(<Posts />);
+  test("displays a hello message", async () => {
+    await renderWithRouter(path);
     const helloMessage = screen.getByText(/hello/i);
     expect(helloMessage).toBeInTheDocument();
   });
 
-  test("displays a button", () => {
-    render(<Posts />);
-    const button = screen.getByRole("button");
-    expect(button).toBeInTheDocument();
+  test("links to posts", async () => {
+    await renderWithRouter(path);
+    const links = screen.getAllByRole("link");
+    links.forEach((link) => {
+      expect(link).toBeInTheDocument();
+    });
   });
 });

@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button";
+import { PostCard } from "@/posts/PostCard";
 
 export function Posts() {
   return (
     <div className="flex flex-col p-2">
       <span>Hello posts!</span>
-      <div>
-        <Button>This button does nothing!</Button>
-      </div>
+      <PostCard />
     </div>
   );
 }

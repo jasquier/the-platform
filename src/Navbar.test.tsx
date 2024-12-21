@@ -1,13 +1,12 @@
 import { describe, expect, test } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 
-import { withRouter } from "@/utils/testUtils";
-import { Navbar } from "@/Navbar.tsx";
+import { renderWithRouter } from "@/utils/testUtils";
 
 describe("Navbar", () => {
-  test("links to home, about, posts", () => {
-    render(withRouter(Navbar));
+  test("links to home, about, posts", async () => {
+    await renderWithRouter();
     const links = screen.getAllByRole("link");
     const linkTexts = links.map((link) => link.textContent);
     expect(linkTexts).toHaveLength(3);

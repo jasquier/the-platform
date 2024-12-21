@@ -1,12 +1,22 @@
-import {
-  createRouter,
-  RouteComponent,
-  RouterProvider,
-} from "@tanstack/react-router";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { routeTree } from "@/routeTree.gen";
 
-export function withRouter(component: RouteComponent) {
+export async function renderWithRouter(path?: `/${string}`) {
   const router = createRouter({ routeTree });
-  return <RouterProvider router={router} defaultComponent={component} />;
+  const result = render(<RouterProvider router={router} />);
+
+  if (!path) return;
+
+  // links is of type HTMLElement[] so the filter step is necessary.
+  const links = result.getAllByRole("link");
+  const link = links
+    .filter((l) => l instanceof HTMLAnchorElement)
+    .find((l) => l.href.endsWith(path));
+
+  if (!link) throw new Error(`${path} link not found!`);
+
+  await userEvent.click(link);
 }
