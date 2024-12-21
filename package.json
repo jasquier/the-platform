@@ -8,12 +8,14 @@
     "dev": "vite --open",
     "prebuild": "tsx src/prepareMd.ts",
     "build": "tsc --build && vite build",
+    "build-storybook": "storybook build",
     "lint": "eslint --cache --fix .",
     "lint:check": "eslint --cache .",
     "preview": "vite preview",
     "prepare": "husky",
     "start": "ntl --autocomplete --exclude start",
     "start:multiple": "ntl --exclude start* --multiple",
+    "storybook": "storybook dev -p 6006",
     "style": "prettier --prose-wrap always --write .",
     "style:check": "prettier --prose-wrap always --check .",
     "test": "vitest",
@@ -34,9 +36,17 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.3",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.15.0",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
     "@tanstack/eslint-plugin-router": "^1.87.6",
     "@tanstack/router-devtools": "^1.91.3",
     "@tanstack/router-plugin": "^1.91.1",
@@ -56,6 +66,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-storybook": "^0.11.1",
     "globals": "^15.12.0",
     "husky": "^9.1.7",
     "jsdom": "^25.0.1",
@@ -64,6 +75,7 @@
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "remark-parse": "^11.0.0",
+    "storybook": "^8.4.7",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.2",
     "typescript": "~5.6.2",
@@ -80,5 +92,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

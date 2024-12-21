@@ -5,6 +5,11 @@ import userEvent from "@testing-library/user-event";
 import { PathLike } from "@/types";
 import { routeTree } from "@/routeTree.gen";
 
+export function withRouter() {
+  const router = createRouter({ routeTree });
+  return <RouterProvider router={router} />;
+}
+
 export async function renderWithRouter(path?: PathLike) {
   const router = createRouter({ routeTree });
   const result = render(<RouterProvider router={router} />);

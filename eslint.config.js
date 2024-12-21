@@ -7,7 +7,7 @@ import tseslint from "typescript-eslint";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 
 export default tseslint.config(
-  { ignores: ["dist", "coverage"] },
+  { ignores: ["dist", "coverage", ".storybook"] },
   {
     extends: [
       js.configs.recommended,
