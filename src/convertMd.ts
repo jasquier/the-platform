@@ -1,5 +1,6 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import { v4 as uuid } from "uuid";
 
 export function convertMd(markdown: string) {
   const json = unified().use(remarkParse).parse(markdown);
@@ -11,5 +12,6 @@ export function convertMd(markdown: string) {
   return {
     title,
     introduction,
+    id: uuid(),
   };
 }

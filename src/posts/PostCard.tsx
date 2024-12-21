@@ -11,13 +11,14 @@ import { Link } from "@tanstack/react-router";
 interface PostCardProps {
   title: string;
   introduction: string;
+  id: string;
 }
 
 function truncate(text: string, maxLen: number) {
   return text.length <= maxLen ? text : `${text.substring(0, maxLen)}...`;
 }
 
-export function PostCard({ title, introduction }: PostCardProps) {
+export function PostCard({ title, introduction, id }: PostCardProps) {
   return (
     <Card className="max-w-[350px] text-2xl">
       <CardHeader>
@@ -26,7 +27,7 @@ export function PostCard({ title, introduction }: PostCardProps) {
       </CardHeader>
       <CardContent>
         <Button asChild className="text-lg">
-          <Link href="/posts">Go to post</Link>
+          <Link href={`/posts/${id}`}>Go to post</Link>
         </Button>
       </CardContent>
     </Card>

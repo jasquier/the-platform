@@ -21,8 +21,8 @@ export function Posts() {
       <span>Hello posts!</span>
       {content
         .map((post) => convertMd(post))
-        .map(({ title, introduction }) => (
-          <PostCard key={title} title={title} introduction={introduction} />
+        .map((postProps) => (
+          <PostCard key={postProps.id} {...postProps} />
         ))}
     </div>
   );
