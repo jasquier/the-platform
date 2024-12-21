@@ -1,28 +1,24 @@
-import { createRouter, RouterProvider } from "@tanstack/react-router";
+import {
+  createMemoryHistory,
+  createRootRoute,
+  createRouter,
+  RouteComponent,
+  RouterProvider,
+} from "@tanstack/react-router";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
-import { PathLike } from "@/types";
-import { routeTree } from "@/routeTree.gen";
-
-export function withRouter() {
-  const router = createRouter({ routeTree });
-  return <RouterProvider router={router} />;
-}
-
-export async function renderWithRouter(path?: PathLike) {
-  const router = createRouter({ routeTree });
-  const result = render(<RouterProvider router={router} />);
-
-  if (!path) return;
-
-  // links is of type HTMLElement[] so the filter step is necessary.
-  const links = result.getAllByRole("link");
-  const link = links
-    .filter((l) => l instanceof HTMLAnchorElement)
-    .find((l) => l.href.endsWith(path));
-
-  if (!link) throw new Error(`${path} link not found!`);
-
-  await userEvent.click(link);
+export function renderWithRouter(component: RouteComponent) {
+  const router = createRouter({
+    history: createMemoryHistory(),
+    routeTree: createRootRoute({
+      component: component,
+    }),
+  });
+  const provider = (
+    <RouterProvider
+      // @ts-expect-error Ignore router type declared in main.tsx
+      router={router}
+    />
+  );
+  render(provider);
 }

@@ -17,6 +17,8 @@ export default defineConfig({
         "src/lib/*",
         "src/prepareMd.ts",
         "src/components/ui/*",
+        ".storybook/",
+        "src/**/*.stories.{ts,tsx}",
       ],
     },
     environment: "jsdom",

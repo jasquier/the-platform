@@ -13,12 +13,16 @@ interface PostCardProps {
   introduction: string;
 }
 
+function truncate(text: string, maxLen: number) {
+  return text.length <= maxLen ? text : `${text.substring(0, maxLen)}...`;
+}
+
 export function PostCard({ title, introduction }: PostCardProps) {
   return (
     <Card className="w-[350px] text-2xl">
       <CardHeader>
         <CardTitle>{title.substring(0, 26)}</CardTitle>
-        <CardDescription>{introduction.substring(0, 100)}</CardDescription>
+        <CardDescription>{truncate(introduction, 100)}</CardDescription>
       </CardHeader>
       <CardContent>
         <Button asChild className="text-lg">
