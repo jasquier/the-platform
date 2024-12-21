@@ -56,6 +56,11 @@ level one headers in your article.
 Simply use `npm start` to run any script(s). Don't worry about remembering which
 scripts are available!
 
+### Adding articles
+
+Articles go in `/content`. Add your article in the specified format and then
+restart the development server.
+
 ### Committing
 
 This project uses the

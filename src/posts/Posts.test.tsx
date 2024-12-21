@@ -15,6 +15,8 @@ describe("Posts", () => {
     expect(helloMessage).toBeInTheDocument();
   });
 
+  // TODO?: change this test to look up the number of .md files in content.
+  // TODO?: then check for that many links? What about pagination?
   test("links to posts", async () => {
     await renderWithRouter(path);
     const links = screen.getAllByRole("link");

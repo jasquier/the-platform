@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "tsx src/prepareMd.ts",
     "dev": "vite --open",
+    "prebuild": "tsx src/prepareMd.ts",
     "build": "tsc --build && vite build",
     "lint": "eslint --cache --fix .",
     "lint:check": "eslint --cache .",
@@ -28,7 +30,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
@@ -60,9 +63,12 @@
     "ntl": "^5.1.0",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
+    "remark-parse": "^11.0.0",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0",
+    "unified": "^11.0.5",
     "vite": "^6.0.1",
     "vitest": "^2.1.8"
   },

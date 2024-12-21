@@ -8,12 +8,17 @@ import {
 } from "@/components/ui/card";
 import { Link } from "@tanstack/react-router";
 
-export function PostCard() {
+interface PostCardProps {
+  title: string;
+  introduction: string;
+}
+
+export function PostCard({ title, introduction }: PostCardProps) {
   return (
     <Card className="w-[350px] text-2xl">
       <CardHeader>
-        <CardTitle>Post Title</CardTitle>
-        <CardDescription>One sentence about the post.</CardDescription>
+        <CardTitle>{title.substring(0, 26)}</CardTitle>
+        <CardDescription>{introduction.substring(0, 100)}</CardDescription>
       </CardHeader>
       <CardContent>
         <Button asChild className="text-lg">
