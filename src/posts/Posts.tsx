@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
-import { PostCard } from "@/posts/PostCard";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { postQueryOptions } from "./postQueryOptions";
+
 import { convertMd } from "@/convertMd";
-import { mdContent } from "@/posts/mdContent";
+import { PostCard } from "@/posts/PostCard";
 
 export function Posts() {
-  const [content, setContent] = useState<string[]>();
-
-  useEffect(() => {
-    async function resolveContent() {
-      const c = await mdContent();
-      setContent(c.map((post) => post.default));
-    }
-    resolveContent().catch(console.error);
-  }, []);
-
-  if (!content) return <div>Loading Content...</div>;
+  const postsQuery = useSuspenseQuery(postQueryOptions);
+  const posts = postsQuery.data;
 
   return (
     <div className="flex flex-col p-2">
       <span>Hello posts!</span>
-      {content
+      {posts
         .map((post) => convertMd(post))
         .map((postProps) => (
           <PostCard key={postProps.id} {...postProps} />

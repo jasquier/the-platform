@@ -3,6 +3,7 @@ import { Outlet } from "@tanstack/react-router";
 
 import "@/index.css";
 import { Navbar } from "@/Navbar";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -21,7 +22,8 @@ export function Root() {
       <hr />
       <Outlet />
       <Suspense>
-        <TanStackRouterDevtools />
+        <ReactQueryDevtools buttonPosition="bottom-right" />
+        <TanStackRouterDevtools position="bottom-left" />
       </Suspense>
     </>
   );
