@@ -20,7 +20,7 @@
     "style:check": "prettier --prose-wrap always --check .",
     "test": "vitest",
     "test:breakpoint": "vitest run --inspect-brk --no-file-parallelism",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage --reporter=verbose",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
