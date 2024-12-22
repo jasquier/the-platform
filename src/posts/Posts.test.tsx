@@ -6,12 +6,12 @@ import { renderWithRouter } from "@/utils/testUtils";
 import { Posts } from "./Posts";
 
 describe("Posts", () => {
-  test("displays a hello message", async () => {
+  test("displays a header", async () => {
     renderWithRouter(Posts);
-    const helloMessage = await waitFor(() => {
-      return screen.getByText(/hello/i);
+    const header = await waitFor(() => {
+      return screen.getByRole("heading");
     });
-    expect(helloMessage).toBeInTheDocument();
+    expect(header).toHaveTextContent(/the platform/i);
   });
 
   // TODO?: change this test to look up the number of .md files in content.

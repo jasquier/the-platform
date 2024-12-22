@@ -9,13 +9,15 @@ export function Posts() {
   const posts = postsQuery.data;
 
   return (
-    <div className="flex flex-col p-2">
-      <span>Hello posts!</span>
-      {posts
-        .map((post) => convertMd(post))
-        .map((postProps) => (
-          <PostCard key={postProps.id} {...postProps} />
-        ))}
+    <div className="flex flex-col items-center gap-2">
+      <h1 className="text-6xl">The Platform</h1>
+      <div className="flex flex-row gap-4">
+        {posts
+          .map((post) => convertMd(post))
+          .map((postProps) => (
+            <PostCard key={postProps.id} {...postProps} />
+          ))}
+      </div>
     </div>
   );
 }
