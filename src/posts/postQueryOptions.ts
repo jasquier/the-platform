@@ -7,4 +7,5 @@ export const postQueryOptions = queryOptions({
     const c = await mdContent();
     return c.map((post) => post.default);
   },
+  staleTime: Infinity,
 });
