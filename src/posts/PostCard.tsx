@@ -27,7 +27,7 @@ export function PostCard({ title, introduction, id }: PostCardProps) {
       </CardHeader>
       <CardContent>
         <Button asChild className="text-lg">
-          <Link href={`/posts/${id}`}>Go to post</Link>
+          <Link to={`/posts/${id}`}>Go to post</Link>
         </Button>
       </CardContent>
     </Card>
