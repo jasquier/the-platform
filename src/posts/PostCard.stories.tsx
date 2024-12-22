@@ -18,5 +18,6 @@ export const Default: Story = {
   args: {
     title: "Post Card Title",
     introduction: lorem,
+    id: "123",
   },
 };

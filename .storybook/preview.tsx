@@ -8,17 +8,23 @@ import {
 } from "@tanstack/react-router";
 
 import "@/index.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const preview: Preview = {
   decorators: [
     (Story) => {
+      const queryClient = new QueryClient();
       const router = createRouter({
         history: createMemoryHistory(),
         routeTree: createRootRoute({
           component: Story,
         }),
       });
-      return <RouterProvider router={router} />;
+      return (
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      );
     },
   ],
   parameters: {
