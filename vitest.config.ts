@@ -22,7 +22,6 @@ export default defineConfig({
       ],
     },
     environment: "jsdom",
-    setupFiles: ["./testSetup.ts"],
   },
   resolve: {
     alias: {
