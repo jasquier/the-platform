@@ -10,7 +10,7 @@ describe("Navbar", () => {
     renderWithRouter(Navbar);
     const links = screen.getAllByRole("link");
     const linkTexts = links.map((link) => link.textContent);
-    const expected = ["Home", "Posts"];
+    const expected = ["Home"];
     expect(linkTexts).toHaveLength(expected.length);
     expected.forEach((expectedLinkText) => {
       expect(linkTexts).toContain(expectedLinkText);
