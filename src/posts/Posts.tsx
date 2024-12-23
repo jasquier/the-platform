@@ -1,22 +1,17 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { postQueryOptions } from "./postQueryOptions";
-
-import { convertMd } from "@/convertMd";
 import { PostCard } from "@/posts/PostCard";
+import posts from "./mdContent.json" with { type: "json" };
+import { articlesSchema } from "@/types.d";
 
 export function Posts() {
-  const postsQuery = useSuspenseQuery(postQueryOptions);
-  const posts = postsQuery.data;
+  const parsedPosts = articlesSchema.parse(posts);
 
   return (
     <div className="flex flex-col items-center gap-2">
       <h1 className="text-6xl">The Platform</h1>
       <div className="flex flex-row gap-4">
-        {posts
-          .map((post) => convertMd(post))
-          .map((postProps) => (
-            <PostCard key={postProps.id} {...postProps} />
-          ))}
+        {parsedPosts.map((post) => (
+          <PostCard key={post.id} {...post} />
+        ))}
       </div>
     </div>
   );
