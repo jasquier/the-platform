@@ -6,12 +6,13 @@ import { renderWithRouter } from "@/utils/testUtils";
 import { Navbar } from "./Navbar";
 
 describe("Navbar", () => {
-  test("links to home, about, posts", () => {
+  test("links to home, posts", () => {
     renderWithRouter(Navbar);
     const links = screen.getAllByRole("link");
     const linkTexts = links.map((link) => link.textContent);
-    expect(linkTexts).toHaveLength(3);
-    ["Home", "About", "Posts"].forEach((expectedLinkText) => {
+    const expected = ["Home", "Posts"];
+    expect(linkTexts).toHaveLength(expected.length);
+    expected.forEach((expectedLinkText) => {
       expect(linkTexts).toContain(expectedLinkText);
     });
   });
